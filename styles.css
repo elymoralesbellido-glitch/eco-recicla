@@ -1,0 +1,35 @@
+/* ===================================================
+   HOJA DE ESTILOS PERSONALIZADA - ECO-RECICLA
+   =================================================== */
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3, .brand-font {
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+/* Animación sutil de flotación */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+/* Transiciones suaves en botones y tarjetas */
+.interactive-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
+}

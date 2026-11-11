@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco-Recicla: Semilleros Ambientales Escolares</title>
+
+  <!-- Tailwind CSS por CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fuentes amigables -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos personalizada -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+  <!-- NAVEGACIÓN -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-emerald-100 shadow-sm">
+       
+<div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+          🌱
+        </div>
+        <div>
+          <span class="brand-font text-2xl font-bold text-emerald-800 tracking-wide">Eco-Recicla</span>
+          <span class="block text-xs font-semibold text-emerald-600 uppercase tracking-wider">Semillero Ambiental</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-slate-600">
+	
+
+<a href="#inicio" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="text-emerald-600 hover:text-emerald-700 transition-colors flex items-center gap-1">
+  <span>🏠</span> Inicio
+</a>
+        <a href="#mision-vision" class="hover:text-emerald-600 transition-colors">Propósito</a>
+        <a href="#guia-canecas" class="hover:text-emerald-600 transition-colors">Canecas</a>
+        <a href="#contexto" class="hover:text-emerald-600 transition-colors">Comunidad</a>
+        <a href="#quiz-interactivo" class="hover:text-emerald-600 transition-colors">Eco-Quiz</a>
+        <a href="#contacto" class="hover:text-emerald-600 transition-colors">Contacto</a>
+      </nav>
+
+      <a href="#quiz-interactivo" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold px-4 py-2 rounded-xl shadow transition-all hover:scale-105">
+        ¡Aprender Jugando!
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+<!-- PUNTO DE LLEGADA REAL PARA EL BOTÓN INICIO -->
+  <div id="inicio"></div>
+
+    <!-- SECCIÓN HERO -->
+    <section class="relative bg-gradient-to-b from-emerald-100/70 via-teal-50 to-slate-50 py-16 px-4">
+      <div class="max-w-5xl mx-auto text-center">
+        <span class="inline-block bg-emerald-200/80 text-emerald-900 text-xs md:text-sm font-extrabold px-3 py-1.5 rounded-full mb-4">
+          🌍 Educación Ambiental y Mediación Escolar
+        </span>
+        <h1 class="brand-font text-4xl md:text-6xl text-slate-800 leading-tight mb-4">
+          Cuidemos Nuestro Entorno con <span class="text-emerald-600">Eco-Recicla</span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-8 font-medium">
+          Transformando el descanso escolar en un espacio de convivencia pacífica, aprendizaje práctico y protección del entorno comunitario.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#guia-canecas" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg transition-transform hover:-translate-y-0.5">
+            Conocer las Canecas
+          </a>
+          <a href="#quiz-interactivo" class="bg-white border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-bold px-6 py-3 rounded-2xl shadow-sm transition-transform hover:-translate-y-0.5">
+            Reto Eco-Quiz
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISIÓN Y VISIÓN -->
+    <section id="mision-vision" class="py-16 px-4 max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="brand-font text-3xl text-slate-800 mb-2">Nuestro Propósito</h2>
+        <p class="text-slate-500 font-semibold text-sm">Formación con sentido socioambiental</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Misión -->
+        <div class="bg-white p-8 rounded-3xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-4">🎯</div>
+          <h3 class="brand-font text-2xl text-emerald-800 mb-3">Nuestra Misión</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Fomentar una cultura de gestión responsable de residuos sólidos y resolución pacífica de conflictos en la básica primaria, integrando herramientas cognitivas, tecnológicas y pedagógicas que despierten la conciencia ecológica desde la infancia.
+          </p>
+        </div>
+        <!-- Visión -->
+        <div class="bg-white p-8 rounded-3xl border border-blue-100 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mb-4">🔭</div>
+          <h3 class="brand-font text-2xl text-blue-800 mb-3">Nuestra Visión</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Ser un modelo pedagógico de referencia comunitaria para el año 2030, donde los estudiantes de las instituciones educativas sean líderes activos en la descontaminación y preservación de los caños, ciénagas y ecosistemas de su ciudad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUÍA DE CANECAS -->
+    <section id="guia-canecas" class="py-16 px-4 bg-emerald-50/50 border-y border-emerald-100">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="brand-font text-3xl text-slate-800 mb-2">Código de Colores de Reciclaje</h2>
+          <p class="text-slate-500 font-semibold text-sm">Aprende qué residuo depositar en cada contenedor</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Caneca Azul -->
+          <div class="bg-white rounded-3xl p-6 border-t-8 border-blue-500 shadow-sm text-center">
+            <span class="text-4xl block mb-2">📦</span>
+            <h3 class="brand-font text-xl text-blue-700 font-bold mb-1">Azul: Papel y Cartón</h3>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Residuos Secos</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Hojas de cuaderno, fotocopias limpias, cajas de cartón, cartulinas y sobres.
+            </p>
+          </div>
+
+          <!-- Caneca Amarilla -->
+          <div class="bg-white rounded-3xl p-6 border-t-8 border-amber-400 shadow-sm text-center">
+            <span class="text-4xl block mb-2">🥤</span>
+            <h3 class="brand-font text-xl text-amber-600 font-bold mb-1">Amarillo: Plásticos</h3>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Envases y Botellas</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Botellas de jugo o gaseosa vacías, vasos desechables, tapas plásticas y bolsas limpias.
+            </p>
+          </div>
+
+          <!-- Caneca Verde -->
+          <div class="bg-white rounded-3xl p-6 border-t-8 border-emerald-500 shadow-sm text-center">
+            <span class="text-4xl block mb-2">🍏</span>
+            <h3 class="brand-font text-xl text-emerald-700 font-bold mb-1">Verde: Orgánicos</h3>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Biodegradables</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Cáscaras de frutas (banano, mango), sobras del refrigerio, hojas secas y restos de comida.
+            </p>
+          </div>
+
+          <!-- Caneca Café -->
+          <div class="bg-white rounded-3xl p-6 border-t-8 border-amber-800 shadow-sm text-center">
+            <span class="text-4xl block mb-2">🍶</span>
+            <h3 class="brand-font text-xl text-amber-900 font-bold mb-1">Café: Vidrio</h3>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Envases de Vidrio</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Frascos de conservas, botellas de vidrio vacías y envases de vidrio limpios y sin romper.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEXTO COMUNITARIO -->
+    <section id="contexto" class="py-16 px-4 max-w-5xl mx-auto">
+      <div class="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+          <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest block mb-2">Impacto Real</span>
+          <h2 class="brand-font text-3xl text-slate-800 mb-4">Sector Stella - Olaya Herrera</h2>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            Al no contar con contenedores adecuados en el recreo, los residuos sólidos de la lonchera terminan acumulándose y llegando al caño aledaño a la institución escolar, originando contaminación y roces entre la escuela y la comunidad.
+          </p>
+          <p class="text-slate-600 text-sm leading-relaxed font-semibold">
+            Eco-Recicla interviene mediante mediación pedagógica y tecnología tangible para restaurar el entorno y fortalecer la sana convivencia comunitaria.
+          </p>
+        </div>
+        <div class="md:w-1/2 bg-emerald-50 rounded-2xl p-6 text-center border border-emerald-100 w-full">
+          <span class="text-5xl block mb-3">🛶</span>
+          <h4 class="brand-font text-xl text-emerald-800 mb-1">Guardianes del Caño</h4>
+          <p class="text-xs text-slate-500">
+            Cada botella o residuo clasificado a tiempo evita la obstrucción de los canales naturales de nuestra ciudad.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ INTERACTIVO -->
+    <section id="quiz-interactivo" class="py-16 px-4 bg-slate-100/70 border-t border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="bg-amber-100 text-amber-800 font-extrabold text-xs px-3 py-1 rounded-full uppercase">Ponte a prueba</span>
+          <h2 class="brand-font text-3xl text-slate-800 mt-2 mb-1">Eco-Quiz para Guardianes</h2>
+          <p class="text-slate-500 text-sm">Responde las preguntas y demuestra tus habilidades ecológicas</p>
+        </div>
+
+        <div id="quiz-container" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+            <span id="quiz-progress" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pregunta 1 de 3</span>
+            <span id="quiz-score" class="text-sm font-extrabold text-emerald-600">Puntaje: 0</span>
+          </div>
+
+          <h3 id="quiz-question" class="text-lg md:text-xl font-bold text-slate-800 mb-6">Cargando pregunta...</h3>
+
+          <div id="quiz-options" class="grid gap-3 mb-6">
+            <!-- Opciones generadas por JavaScript -->
+          </div>
+
+          <div id="quiz-feedback" class="hidden p-4 rounded-2xl mb-6 text-sm font-semibold"></div>
+
+          <button id="quiz-next-btn" class="hidden w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-2xl shadow transition-colors">
+            Siguiente Pregunta ➔
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-16 px-4 max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="brand-font text-3xl text-slate-800 mb-2">Contáctanos</h2>
+        <p class="text-slate-500 text-sm">¿Deseas implementar Eco-Recicla en tu sede escolar o comunidad?</p>
+      </div>
+
+      <form id="contact-form" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm grid gap-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Nombre Completo</label>
+            <input type="text" required placeholder="Tu nombre" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Correo Electrónico</label>
+            <input type="email" required placeholder="tu@correo.com" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">Institución / Comunidad</label>
+          <input type="text" placeholder="Ej. I.E. Ciudad de Tunja" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-600 mb-1">Mensaje o Consulta</label>
+          <textarea rows="4" required placeholder="Escribe tu mensaje aquí..." class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+        </div>
+        <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-2xl shadow transition-colors">
+          Enviar Mensaje
+        </button>
+        <div id="contact-success" class="hidden text-center text-sm font-bold text-emerald-700 bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+          ¡Gracias! Tu mensaje ha sido recibido para la iniciativa Eco-Recicla.
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="bg-slate-900 text-slate-400 py-8 px-4 border-t border-slate-800 text-center text-xs">
+    <div class="max-w-5xl mx-auto space-y-2">
+      <p class="font-bold text-slate-300">Proyecto Eco-Recicla: Herramientas Cognitivas y Resolución de Conflictos</p>
+      <p>Licenciatura en Educación con Énfasis en Ciencias Sociales y Educación Ambiental</p>
+      <p class="text-slate-500">Cartagena de Indias, Colombia</p>
+    </div>
+  </footer>
+
+  <!-- Script interactivo -->
+  <script src="script.js"></script>
+</body>
+</html>
