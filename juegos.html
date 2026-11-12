@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco-Recicla Kids • Guardianes del Canal Stella</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #f3efe6;
+      background-image: radial-gradient(#dcd3c1 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      color: #2c3e50;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    h1, h2, h3, .bin-color-name, .btn-fun { font-family: 'Fredoka', sans-serif; }
+
+    .hero-header {
+      background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+      color: #ffffff;
+      padding: 1.5rem 1rem 0 1rem;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(46, 125, 50, 0.25);
+      border-bottom: 5px solid #fdd835;
+      position: relative;
+    }
+    .top-nav-bar {
+      max-width: 860px;
+      margin: 0 auto 0.5rem auto;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .btn-home-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: #ffffff;
+      color: #2e7d32;
+      text-decoration: none;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+      transition: transform 0.15s, background-color 0.2s;
+    }
+    .btn-home-back:hover {
+      background-color: #f1f8e9;
+      transform: translateY(-2px);
+    }
+    .btn-home-back:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+    }
+
+    .mascot-bubble { font-size: 2.6rem; animation: bounce 2s infinite; display: inline-block; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    .pill-badge {
+      display: block; width: fit-content; margin: 0.2rem auto;
+      background: rgba(255, 255, 255, 0.2); padding: 0.25rem 0.9rem;
+      border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+    }
+    .hero-header h1 { font-size: 2.1rem; letter-spacing: 0.5px; text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15); }
+    .hero-header p { font-size: 1rem; color: #e8f5e9; margin-bottom: 1.2rem; }
+
+    .tab-nav { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; max-width: 850px; margin: 0 auto; }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.18); color: #ffffff; border: none;
+      padding: 0.8rem 1.2rem; border-radius: 14px 14px 0 0;
+      font-family: 'Fredoka', sans-serif; font-size: 1rem; cursor: pointer;
+      transition: all 0.2s; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .tab-btn:hover { background: rgba(255, 255, 255, 0.3); }
+    .tab-btn.active { background: #ffffff; color: #2e7d32; font-weight: 700; transform: translateY(2px); }
+
+    .main-container { max-width: 860px; width: 94%; margin: 1.8rem auto; flex: 1; }
+    .tab-panel {
+      display: none; background: #ffffff; padding: 1.8rem; border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); border: 3px solid #e0e0e0;
+      animation: popIn 0.3s ease;
+    }
+    .tab-panel.active { display: block; }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+    .section-intro { text-align: center; margin-bottom: 1.5rem; }
+    .section-intro h2 { color: #2e7d32; font-size: 1.6rem; margin-bottom: 0.4rem; }
+
+    .bins-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .bin-card {
+      border-radius: 18px; padding: 1.2rem 0.8rem; text-align: center; color: #ffffff;
+      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.18); position: relative; user-select: none;
+    }
+    .bin-card:hover { transform: translateY(-6px) scale(1.03); }
+    .bin-card:active { transform: translateY(2px); }
+    .bin-blue { background: #1e88e5; }
+    .bin-yellow { background: #fbc02d; color: #3e2723; }
+    .bin-green { background: #43a047; }
+    .bin-brown { background: #6d4c41; }
+    .bin-emoji { font-size: 2.8rem; margin-bottom: 0.3rem; }
+    .bin-color-name { font-size: 1.2rem; font-weight: 700; display: block; }
+    .bin-body p { font-size: 0.9rem; font-weight: 700; }
+    .tap-hint {
+      display: inline-block; margin-top: 0.6rem; background: rgba(255, 255, 255, 0.28);
+      padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.78rem; font-weight: 800;
+    }
+
+    .inspector-box {
+      background: #f1f8e9; border: 3px dashed #8bc34a; border-radius: 16px;
+      padding: 1.3rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .inspector-icon {
+      font-size: 3rem; background: #ffffff; width: 70px; height: 70px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    .examples-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.7rem; }
+    .ex-pill {
+      background: #ffffff; border: 2px solid #aed581; padding: 0.25rem 0.75rem;
+      border-radius: 20px; font-size: 0.85rem; font-weight: 700; color: #33691e;
+    }
+
+    .next-step-banner {
+      background: #fff3e0; border-radius: 14px; padding: 1rem 1.4rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-weight: 700;
+    }
+
+    .btn-fun {
+      border: none; padding: 0.85rem 1.4rem; border-radius: 14px; font-size: 1.05rem;
+      font-weight: 600; cursor: pointer; color: #ffffff; transition: transform 0.1s;
+      box-shadow: 0 5px 0 rgba(0,0,0,0.2); text-decoration: none; display: inline-block;
+    }
+    .btn-fun:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+    .btn-orange { background: #fb8c00; }
+    .btn-green-action { background: #43a047; }
+    .btn-blue-action { background: #1e88e5; }
+    .btn-gray-action { background: #607d8b; }
+    .btn-large { width: 100%; font-size: 1.2rem; padding: 1rem; }
+
+    .arcade-board { background: #e3f2fd; border-radius: 18px; padding: 1.5rem; border: 3px solid #90caf9; }
+    .arcade-hud { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+    .hud-pill { background: #ffffff; padding: 0.4rem 1rem; border-radius: 20px; font-weight: 800; color: #1565c0; box-shadow: 0 3px 6px rgba(0,0,0,0.06); }
+    .trash-floating-card {
+      background: #ffffff; max-width: 340px; margin: 0 auto 1.2rem auto; padding: 1.3rem;
+      border-radius: 20px; text-align: center; box-shadow: 0 8px 18px rgba(0,0,0,0.1); border: 3px solid #bbdefb;
+    }
+    .trash-big-emoji { font-size: 4rem; display: block; animation: wiggle 1.5s infinite; }
+    @keyframes wiggle { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+    .trash-question {
+      display: inline-block; margin-top: 0.4rem; background: #fff9c4; padding: 0.2rem 0.7rem;
+      border-radius: 10px; font-size: 0.85rem; font-weight: 700; color: #f57f17;
+    }
+    .arcade-toast { text-align: center; min-height: 28px; font-weight: 800; font-size: 1rem; margin-bottom: 1rem; }
+    .arcade-bins-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; }
+    .arcade-bin-btn {
+      border: none; border-radius: 14px; padding: 0.8rem 0.4rem; color: #ffffff;
+      font-family: 'Fredoka', sans-serif; font-size: 1rem; cursor: pointer;
+      box-shadow: 0 5px 0 rgba(0,0,0,0.2); transition: transform 0.1s;
+    }
+    .arcade-bin-btn span { font-size: 1.8rem; display: block; }
+    .arcade-bin-btn small { font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 700; }
+    .arcade-bin-btn:active { transform: translateY(3px); }
+    .bg-blue { background: #1e88e5; }
+    .bg-yellow { background: #fbc02d; color: #3e2723; }
+    .bg-green { background: #43a047; }
+    .bg-brown { background: #6d4c41; }
+    .arcade-end-screen { text-align: center; padding: 1.5rem; background: #ffffff; border-radius: 16px; }
+    .trophy-anim { font-size: 3.5rem; }
+    .arcade-end-btns { display: flex; justify-content: center; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap; }
+
+    .mission-card { display: none; }
+    .mission-card.active { display: block; }
+    .welcome-hero { text-align: center; margin-bottom: 1.5rem; }
+    .hero-emoji { font-size: 3rem; }
+    .welcome-hero h2 { color: #2e7d32; font-size: 1.6rem; margin: 0.4rem 0; }
+    .kid-input-box { background: #f9fbe7; padding: 1.2rem; border-radius: 14px; border: 2px solid #c5e1a5; margin-bottom: 1.2rem; }
+    .kid-input-box label { display: block; font-weight: 800; margin-bottom: 0.5rem; color: #33691e; }
+    .kid-input-box input { width: 100%; padding: 0.8rem 1rem; border-radius: 10px; border: 2px solid #9ccc65; font-size: 1.05rem; font-family: inherit; }
+    .error-text { color: #d32f2f; font-weight: 700; }
+    .family-box-kid {
+      background: #fff8e1; border: 2px solid #ffe082; border-left: 6px solid #ffb300;
+      border-radius: 12px; padding: 1rem; display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 1.3rem;
+    }
+    .fam-icon { font-size: 2rem; }
+    .mission-top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+    .player-badge, .area-badge, .stars-badge { padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.88rem; font-weight: 700; }
+    .player-badge { background: #e8f5e9; color: #2e7d32; }
+    .area-badge { background: #e0f7fa; color: #00838f; }
+    .stars-badge { background: #fff9c4; color: #f57f17; }
+    .kid-progress-track { height: 14px; background: #eeeeee; border-radius: 10px; overflow: hidden; margin-bottom: 0.4rem; }
+    .kid-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #66bb6a, #fbc02d); transition: width 0.4s ease; }
+    .step-label { font-size: 0.85rem; font-weight: 700; color: #757575; margin-bottom: 0.8rem; }
+    .m-title { color: #1b5e20; font-size: 1.35rem; margin-bottom: 0.6rem; }
+    .story-bubble { background: #f5f5f5; padding: 1rem 1.2rem; border-radius: 14px; font-size: 1.02rem; font-weight: 600; margin-bottom: 1.2rem; }
+    .kid-options-list { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.2rem; }
+    .option-btn {
+      background: #ffffff; border: 2.5px solid #cfd8dc; padding: 1rem; border-radius: 14px;
+      font-family: inherit; font-size: 0.98rem; font-weight: 700; text-align: left; cursor: pointer; transition: all 0.2s;
+    }
+    .option-btn:hover:not(:disabled) { border-color: #66bb6a; background: #f1f8e9; transform: translateX(4px); }
+    .option-btn.correct { background: #c8e6c9; border-color: #2e7d32; color: #1b5e20; }
+    .option-btn.wrong { background: #ffcdd2; border-color: #c62828; color: #b71c1c; }
+    .kid-feedback { background: #e8f5e9; border: 2px solid #81c784; border-radius: 14px; padding: 1.2rem; }
+    .kid-feedback p { margin-bottom: 1rem; font-size: 0.96rem; }
+
+    .diploma-frame { border: 6px double #43a047; border-radius: 20px; padding: 1.8rem; text-align: center; background: #fafffa; }
+    .diploma-medal { font-size: 3.8rem; }
+    .diploma-tag { background: #fdd835; color: #3e2723; font-weight: 800; padding: 0.25rem 0.9rem; border-radius: 20px; font-size: 0.85rem; }
+    .diploma-frame h2 { color: #2e7d32; font-size: 1.7rem; margin: 0.7rem 0; }
+    .final-stars-box { background: #e8f5e9; padding: 0.9rem; border-radius: 14px; margin: 1rem auto; max-width: 320px; }
+    .final-stars-box strong { font-size: 1.6rem; color: #2e7d32; }
+    .rank-pill { margin-top: 0.4rem; font-weight: 800; color: #ef6c00; }
+    .diploma-msg { font-size: 0.98rem; margin-bottom: 1.2rem; }
+    .family-pact { background: #fff8e1; border: 2px dashed #ffb300; border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem; }
+    .diploma-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .hidden { display: none !important; }
+    .kid-footer { text-align: center; padding: 1.2rem; background: #e6dfd3; font-size: 0.85rem; font-weight: 700; color: #5d4037; }
+    .footer-back-wrap { margin-top: 0.6rem; }
+    .footer-back-link { color: #2e7d32; text-decoration: underline; font-weight: 800; }
+
+    @media (max-width: 600px) {
+      .arcade-bins-row { grid-template-columns: repeat(2, 1fr); }
+      .inspector-box { flex-direction: column; text-align: center; }
+      .examples-pills { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero-header">
+    <!-- BOTÓN PARA REGRESAR A LA PÁGINA PRINCIPAL -->
+    <div class="top-nav-bar">
+      <a href="index.html" class="btn-home-back">⬅️ Volver al Portal Eco-Recicla</a>
+    </div>
+
+    <div class="header-content">
+      <div class="mascot-bubble">🌍✨</div>
+      <span class="pill-badge">Semillero Eco-Recicla • Sector Stella</span>
+      <h1>¡Aventura Eco-Recicla!</h1>
+      <p>Aprende, juega y salva nuestro canal con ayuda de tu familia</p>
+    </div>
+
+    <nav class="tab-nav">
+      <button type="button" class="tab-btn active" data-target="tab-bins" onclick="switchTab('tab-bins')">
+        <span class="tab-icon">🗑️</span> 1. Canecas Mágicas
+      </button>
+      <button type="button" class="tab-btn" data-target="tab-sort" onclick="switchTab('tab-sort')">
+        <span class="tab-icon">🎯</span> 2. ¡Atrapa y Clasifica!
+      </button>
+      <button type="button" class="tab-btn" data-target="tab-missions" onclick="switchTab('tab-missions')">
+        <span class="tab-icon">🚀</span> 3. Misiones en Familia
+      </button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+
+    <!-- PESTAÑA 1 -->
+    <section id="tab-bins" class="tab-panel active">
+      <div class="section-intro">
+        <h2>¡Toca cada caneca para descubrir su superpoder!</h2>
+        <p>Nuestra estación inteligente con <strong>micro:bit</strong> tiene 4 colores. Haz clic en cada una para escuchar su sonido y ver qué va adentro:</p>
+      </div>
+
+      <div class="bins-showcase">
+        <div class="bin-card bin-blue" onclick="inspectBin('azul')">
+          <div class="bin-emoji">📘</div>
+          <div class="bin-body">
+            <span class="bin-color-name">AZUL</span>
+            <p>Papel y Cartón</p>
+          </div>
+          <span class="tap-hint">👆 ¡Tócame!</span>
+        </div>
+
+        <div class="bin-card bin-yellow" onclick="inspectBin('amarilla')">
+          <div class="bin-emoji">🧴</div>
+          <div class="bin-body">
+            <span class="bin-color-name">AMARILLA</span>
+            <p>Plásticos y Latas</p>
+          </div>
+          <span class="tap-hint">👆 ¡Tócame!</span>
+        </div>
+
+        <div class="bin-card bin-green" onclick="inspectBin('verde')">
+          <div class="bin-emoji">🍌</div>
+          <div class="bin-body">
+            <span class="bin-color-name">VERDE</span>
+            <p>Orgánicos</p>
+          </div>
+          <span class="tap-hint">👆 ¡Tócame!</span>
+        </div>
+
+        <div class="bin-card bin-brown" onclick="inspectBin('cafe')">
+          <div class="bin-emoji">🫙</div>
+          <div class="bin-body">
+            <span class="bin-color-name">CAFÉ</span>
+            <p>Vidrio</p>
+          </div>
+          <span class="tap-hint">👆 ¡Tócame!</span>
+        </div>
+      </div>
+
+      <div id="bin-inspector" class="inspector-box">
+        <div class="inspector-icon" id="insp-icon">💡</div>
+        <div class="inspector-details">
+          <h3 id="insp-title">¡Haz clic en una caneca arriba!</h3>
+          <p id="insp-desc">Descubrirás qué residuos de tu lonchera van en cada color y cómo la placa micro:bit celebra cuando reciclas bien.</p>
+          <div id="insp-examples" class="examples-pills"></div>
+        </div>
+      </div>
+
+      <div class="next-step-banner">
+        <p>¿Ya te aprendiste los 4 colores?</p>
+        <button type="button" class="btn-fun btn-orange" onclick="switchTab('tab-sort')">¡Ir al Minijuego de Clasificar! 🎮</button>
+      </div>
+    </section>
+
+    <!-- PESTAÑA 2 -->
+    <section id="tab-sort" class="tab-panel">
+      <div class="section-intro">
+        <h2>🎮 Minijuego: ¡Limpia el Patio de Recreo!</h2>
+        <p>Mira el residuo que apareció en el patio y haz clic en la caneca del color correcto antes de que el viento lo lleve al canal.</p>
+      </div>
+
+      <div class="arcade-board">
+        <div class="arcade-hud">
+          <div class="hud-pill">⭐ Aciertos: <span id="sort-score">0</span> / <span id="sort-total">8</span></div>
+          <div class="hud-pill">🔥 Racha: <span id="sort-streak">0</span></div>
+        </div>
+
+        <div id="arcade-play-area" class="arcade-stage">
+          <div id="trash-card" class="trash-floating-card">
+            <span id="trash-emoji" class="trash-big-emoji">🍌</span>
+            <h3 id="trash-name">Cáscara de Banano</h3>
+            <span class="trash-question">¿En qué caneca va?</span>
+          </div>
+
+          <div id="arcade-feedback" class="arcade-toast"></div>
+
+          <div class="arcade-bins-row">
+            <button type="button" class="arcade-bin-btn bg-blue" onclick="checkSort('azul')">
+              <span>📘</span> Azul<br><small>Papel/Cartón</small>
+            </button>
+            <button type="button" class="arcade-bin-btn bg-yellow" onclick="checkSort('amarilla')">
+              <span>🧴</span> Amarilla<br><small>Plástico/Metal</small>
+            </button>
+            <button type="button" class="arcade-bin-btn bg-green" onclick="checkSort('verde')">
+              <span>🍌</span> Verde<br><small>Orgánico</small>
+            </button>
+            <button type="button" class="arcade-bin-btn bg-brown" onclick="checkSort('cafe')">
+              <span>🫙</span> Café<br><small>Vidrio</small>
+            </button>
+          </div>
+        </div>
+
+        <div id="arcade-end" class="arcade-end-screen hidden">
+          <div class="trophy-anim">🏆🎉</div>
+          <h3>¡Patio Limpio, Guardián!</h3>
+          <p id="arcade-end-msg"></p>
+          <div class="arcade-end-btns">
+            <button type="button" class="btn-fun btn-blue-action" onclick="initSortGame()">🔄 Jugar otra vez</button>
+            <button type="button" class="btn-fun btn-green-action" onclick="switchTab('tab-missions')">🚀 Pasar a las Misiones en Familia</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTAÑA 3 -->
+    <section id="tab-missions" class="tab-panel">
+      <div id="screen-welcome" class="mission-card active">
+        <div class="welcome-hero">
+          <span class="hero-emoji">🦸‍♂️🦸‍♀️</span>
+          <h2>Misiones de Guardianes del Territorio</h2>
+          <p>Como decía el maestro <strong>Paulo Freire</strong>: <em>"La educación no cambia el mundo, cambia a las personas que van a cambiar el mundo"</em>. ¡Resuelve estos 4 retos junto a tu familia!</p>
+        </div>
+
+        <div class="kid-input-box">
+          <label for="student-name">✍️ Escribe tu nombre de Guardián Ecológico:</label>
+          <input type="text" id="student-name" placeholder="Ej. Sofía Martínez" autocomplete="off">
+          <small id="name-error" class="error-text"></small>
+        </div>
+
+        <div class="family-box-kid">
+          <span class="fam-icon">👨‍👩‍👧‍👦</span>
+          <div>
+            <strong>¡Atención Papá, Mamá o Acudiente!</strong>
+            <p>En cada misión hay una pregunta especial para conversar en familia y cuidar nuestro barrio Sector Stella.</p>
+          </div>
+        </div>
+
+        <button type="button" id="btn-start" class="btn-fun btn-green-action btn-large" onclick="startMissions()">🚀 ¡Comenzar Misiones!</button>
+      </div>
+
+      <div id="screen-game" class="mission-card">
+        <div class="mission-top-bar">
+          <div class="player-badge">🦸 <strong id="display-player-name"></strong></div>
+          <div class="area-badge" id="current-area">Área</div>
+          <div class="stars-badge">⭐ <strong id="score">0</strong> pts</div>
+        </div>
+
+        <div class="kid-progress-track">
+          <div id="progress-bar" class="kid-progress-fill"></div>
+        </div>
+        <p class="step-label">Misión <span id="current-step">1</span> de <span id="total-steps">4</span></p>
+
+        <h3 id="mission-title" class="m-title">Título</h3>
+        <div class="story-bubble">
+          <p id="mission-scenario"></p>
+        </div>
+
+        <div class="family-box-kid">
+          <span class="fam-icon">💬</span>
+          <div>
+            <strong>Pregunta para conversar en Familia:</strong>
+            <p id="family-prompt"></p>
+          </div>
+        </div>
+
+        <div id="options-container" class="kid-options-list"></div>
+
+        <div id="feedback-box" class="kid-feedback hidden">
+          <p id="feedback-text"></p>
+          <button type="button" id="btn-next" class="btn-fun btn-orange" onclick="nextMission()">Siguiente Misión ➡️</button>
+        </div>
+      </div>
+
+      <div id="screen-results" class="mission-card">
+        <div class="diploma-frame">
+          <div class="diploma-medal">🏅</div>
+          <span class="diploma-tag">DIPLOMA OFICIAL ECO-RECICLA</span>
+          <h2>¡Felicitaciones, <span id="final-student-name"></span>!</h2>
+          
+          <div class="final-stars-box">
+            <span>Puntaje Total:</span>
+            <strong id="final-score">0</strong> / 100 Puntos
+            <div id="final-badge" class="rank-pill"></div>
+          </div>
+
+          <p id="final-reflection" class="diploma-msg"></p>
+
+          <div class="family-pact">
+            <h4>🤝 Compromiso de nuestra Familia esta semana:</h4>
+            <p>Separar en casa las botellas plásticas y mantener limpia nuestra cuadra para proteger los canales del Sector Stella.</p>
+          </div>
+
+          <div class="diploma-actions">
+            <button type="button" id="btn-restart" class="btn-fun btn-blue-action" onclick="restartMissions()">🔄 Volver a Jugar</button>
+            <button type="button" onclick="window.print()" class="btn-fun btn-green-action">🖨️ Imprimir mi Diploma</button>
+            <a href="index.html" class="btn-fun btn-gray-action">🏠 Volver al Inicio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="kid-footer">
+    <p>🌱 Proyecto Eco-Recicla • Institución Educativa Ciudad de Tunja • Educación con Amor y Tecnología</p>
+    <div class="footer-back-wrap">
+      <a href="index.html" class="footer-back-link">⬅️ Regresar a la página principal de Eco-Recicla</a>
+    </div>
+  </footer>
+
+  <script>
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) audioCtx = new AudioContextClass();
+      }
+      return audioCtx;
+    }
+
+    function playTone(freq, type, duration) {
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        if (ctx.state === 'suspended') ctx.resume();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(0.12, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function playSuccessSound() {
+      playTone(523.25, 'sine', 0.15);
+      setTimeout(() => playTone(659.25, 'sine', 0.15), 100);
+      setTimeout(() => playTone(783.99, 'sine', 0.25), 200);
+    }
+
+    function playErrorSound() {
+      playTone(220, 'triangle', 0.25);
+      setTimeout(() => playTone(180, 'triangle', 0.3), 150);
+    }
+
+    function playPopSound() {
+      playTone(440, 'sine', 0.1);
+    }
+
+    function switchTab(targetId) {
+      playPopSound();
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.target === targetId);
+      });
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.id === targetId);
+      });
+    }
+
+    const binData = {
+      azul: {
+        icon: "📘",
+        title: "Caneca Azul: Papel y Cartón Limpios",
+        desc: "¡Cuando depositas papel limpio aquí, la micro:bit enciende una luz feliz! Recuerda que no deben estar mojados ni untados de comida.",
+        examples: ["📓 Hojas de cuaderno", "📦 Cajas de cartón", "📰 Periódicos", "🛍️ Bolsas de papel"]
+      },
+      amarilla: {
+        icon: "🧴",
+        title: "Caneca Amarilla: Plásticos y Latas",
+        desc: "Aquí van los envases de tu merienda. Al guardarlos secos evitamos que el viento los lleve a tapar los canales del Sector Stella.",
+        examples: ["🥤 Botellas de jugo", "🥫 Latas limpias", "🥡 Vasos plásticos", "🧴 Envases de yogur"]
+      },
+      verde: {
+        icon: "🍌",
+        title: "Caneca Verde: Residuos Orgánicos",
+        desc: "¡Comida para la tierra! Estos restos se transforman en abono natural para las plantas de nuestra escuela y barrio.",
+        examples: ["🍌 Cáscaras de banano", "🍎 Corazón de manzana", "🍊 Cáscaras de naranja", "🍂 Hojas secas"]
+      },
+      cafe: {
+        icon: "🫙",
+        title: "Caneca Café: Envases de Vidrio",
+        desc: "El vidrio se puede reciclar infinitas veces sin perder calidad. ¡Siempre deposítalo con cuidado y ayuda de un adulto!",
+        examples: ["🫙 Frascos de compota", "🍾 Botellas de vidrio", "🥫 Envases de mermelada"]
+      }
+    };
+
+    function inspectBin(color) {
+      playSuccessSound();
+      const info = binData[color];
+      if (!info) return;
+      document.getElementById('insp-icon').textContent = info.icon;
+      document.getElementById('insp-title').textContent = info.title;
+      document.getElementById('insp-desc').textContent = info.desc;
+      
+      const exContainer = document.getElementById('insp-examples');
+      exContainer.innerHTML = "";
+      info.examples.forEach(item => {
+        const span = document.createElement('span');
+        span.className = 'ex-pill';
+        span.textContent = item;
+        exContainer.appendChild(span);
+      });
+    }
+
+    const trashItems = [
+      { emoji: "🍌", name: "Cáscara de Banano", bin: "verde" },
+      { emoji: "🧴", name: "Botella de Agua Plástica", bin: "amarilla" },
+      { emoji: "📦", name: "Caja de Jugo de Cartón", bin: "azul" },
+      { emoji: "🫙", name: "Frasco de Vidrio", bin: "cafe" },
+      { emoji: "🍎", name: "Restos de Manzana", bin: "verde" },
+      { emoji: "🥫", name: "Lata de Refresco", bin: "amarilla" },
+      { emoji: "📓", name: "Hoja de Cuaderno Usada", bin: "azul" },
+      { emoji: "🥤", name: "Vaso Plástico de Merienda", bin: "amarilla" }
+    ];
+
+    let sortIndex = 0;
+    let sortScore = 0;
+    let sortStreak = 0;
+    let canClickSort = true;
+
+    function initSortGame() {
+      sortIndex = 0;
+      sortScore = 0;
+      sortStreak = 0;
+      canClickSort = true;
+      document.getElementById('sort-score').textContent = "0";
+      document.getElementById('sort-total').textContent = trashItems.length;
+      document.getElementById('sort-streak').textContent = "0";
+      document.getElementById('arcade-feedback').textContent = "";
+      document.getElementById('arcade-play-area').classList.remove('hidden');
+      document.getElementById('arcade-end').classList.add('hidden');
+      showCurrentTrash();
+    }
+
+    function showCurrentTrash() {
+      const item = trashItems[sortIndex];
+      document.getElementById('trash-emoji').textContent = item.emoji;
+      document.getElementById('trash-name').textContent = item.name;
+    }
+
+    function checkSort(chosenBin) {
+      if (!canClickSort) return;
+      canClickSort = false;
+
+      const currentItem = trashItems[sortIndex];
+      const toast = document.getElementById('arcade-feedback');
+
+      if (chosenBin === currentItem.bin) {
+        playSuccessSound();
+        sortScore++;
+        sortStreak++;
+        document.getElementById('sort-score').textContent = sortScore;
+        document.getElementById('sort-streak').textContent = sortStreak;
+        toast.style.color = "#2e7d32";
+        toast.textContent = `¡Genial! 🎉 ${currentItem.name} va en la caneca ${chosenBin.toUpperCase()}.`;
+      } else {
+        playErrorSound();
+        sortStreak = 0;
+        document.getElementById('sort-streak').textContent = "0";
+        toast.style.color = "#c62828";
+        toast.textContent = `¡Ups! ${currentItem.name} iba en la caneca ${currentItem.bin.toUpperCase()}.`;
+      }
+
+      setTimeout(() => {
+        sortIndex++;
+        toast.textContent = "";
+        canClickSort = true;
+        if (sortIndex < trashItems.length) {
+          showCurrentTrash();
+        } else {
+          document.getElementById('arcade-play-area').classList.add('hidden');
+          document.getElementById('arcade-end').classList.remove('hidden');
+          document.getElementById('arcade-end-msg').textContent = 
+            `Lograste clasificar correctamente ${sortScore} de ${trashItems.length} residuos del patio escolar.`;
+        }
+      }, 1300);
+    }
+
+    initSortGame();
+
+    const missions = [
+      {
+        id: 1,
+        area: "Ciencias y Tecnología",
+        title: "Misión 1: ¡A reciclar en el descanso!",
+        scenario: "Suena el timbre del recreo. Tienes una cáscara de banano y una botella plástica de jugo frente a la estación Eco-Recicla.",
+        familyPrompt: "Papá o Mamá: ¿Cómo separamos en nuestra cocina las cáscaras de frutas y las botellas plásticas?",
+        options: [
+          {
+            text: "Meter todo junto en la misma caneca para salir rápido a jugar.",
+            correct: false,
+            feedback: "¡Cuidado! Si mezclamos cáscaras húmedas con plástico, el plástico se ensucia y ya no se puede reciclar."
+          },
+          {
+            text: "La cáscara en la caneca Verde (orgánica) y la botella en la Amarilla (plásticos).",
+            correct: true,
+            feedback: "¡Súper! Así la micro:bit celebra tu acierto y ayudamos a mantener limpios los canales del barrio."
+          },
+          {
+            text: "Dejar la basura en el suelo del patio para que la recoja el aseo.",
+            correct: false,
+            feedback: "Como decía Paulo Freire, nuestro colegio y barrio son nuestra casa común: ¡todos somos responsables de cuidarlos!"
+          }
+        ]
+      },
+      {
+        id: 2,
+        area: "Matemáticas Comunitarias",
+        title: "Misión 2: Salvando el Canal de Stella",
+        scenario: "Si cada familia de nuestra cuadra evita botar 3 botellas plásticas al caño cada día, ¿cuántas botellas salvan 10 familias en 5 días?",
+        familyPrompt: "Cuenten juntos en casa: ¿Cuántas botellas plásticas vacías juntan en una semana?",
+        options: [
+          {
+            text: "15 botellas plásticas.",
+            correct: false,
+            feedback: "¡Casi! Multiplica: 10 familias × 3 botellas = 30 botellas por día. En 5 días son 150 botellas."
+          },
+          {
+            text: "150 botellas plásticas salvadas del caño.",
+            correct: true,
+            feedback: "¡Matemática ecológica perfecta! 150 botellas menos en el canal evitan inundaciones cuando llueve."
+          },
+          {
+            text: "300 botellas plásticas.",
+            correct: false,
+            feedback: "Revisa la cuenta: 30 botellas diarias × 5 días nos da 150 botellas."
+          }
+        ]
+      },
+      {
+        id: 3,
+        area: "Convivencia y Paz",
+        title: "Misión 3: Mediadores de Paz con los Vecinos",
+        scenario: "El viento voló unas bolsas de merienda hacia el andén de un vecino del Sector Stella y está muy enojado. ¿Qué hacemos como Guardianes?",
+        familyPrompt: "¿Cómo solucionamos en familia un problema con un vecino usando el diálogo y el respeto?",
+        options: [
+          {
+            text: "Gritarle que nosotros no tenemos la culpa del viento.",
+            correct: false,
+            feedback: "Gritar agranda el problema. Los buenos mediadores escuchan con respeto y buscan soluciones."
+          },
+          {
+            text: "Pedir disculpas con respeto, recoger las bolsas y comprometer al salón a usar las canecas.",
+            correct: true,
+            feedback: "¡Excelente mediación! Transformaste un enojo en amistad y trabajo en equipo entre la escuela y el barrio."
+          },
+          {
+            text: "Salir corriendo y escondernos en el salón.",
+            correct: false,
+            feedback: "Los Guardianes Ecológicos dan la cara con amabilidad y ayudan a resolver los problemas."
+          }
+        ]
+      },
+      {
+        id: 4,
+        area: "Lenguaje y Comunicación",
+        title: "Misión 4: Un cartel con amor para nuestro barrio",
+        scenario: "Vamos a pintar un cartel para poner cerca del canal de Stella. ¿Cuál frase motiva mejor a todos los vecinos?",
+        familyPrompt: "¿Qué frase bonita pondrían en la puerta de su casa para cuidar el agua y el barrio?",
+        options: [
+          {
+            text: "«Prohibido botar basura o llamamos a la policía.»",
+            correct: false,
+            feedback: "Las amenazas no enseñan con cariño. Es mejor invitar a todos a cuidar lo que es nuestro."
+          },
+          {
+            text: "«El canal y el patio son de todos: cada residuo en su caneca es salud y vida para Stella.»",
+            correct: true,
+            feedback: "¡Qué gran mensaje! Cuando hablamos con respeto y amor por nuestro barrio, todos se animan a ayudar."
+          },
+          {
+            text: "«No botar basura porque se ve feo.»",
+            correct: false,
+            feedback: "Además de verse mal, la basura contamina el agua y enferma a las familias. ¡El mensaje debe inspirar vida!"
+          }
+        ]
+      }
+    ];
+
+    let currentStepIndex = 0;
+    let currentScore = 0;
+    let studentName = "";
+
+    document.getElementById("total-steps").textContent = missions.length;
+
+    function startMissions() {
+      const inputName = document.getElementById("student-name");
+      const errorName = document.getElementById("name-error");
+      const nameVal = inputName.value.trim();
+
+      if (!nameVal) {
+        playErrorSound();
+        errorName.textContent = "👆 ¡Escribe tu nombre primero para darte tu diploma al final!";
+        inputName.focus();
+        return;
+      }
+
+      playSuccessSound();
+      errorName.textContent = "";
+      studentName = nameVal;
+      document.getElementById("display-player-name").textContent = studentName;
+
+      document.getElementById("screen-welcome").classList.remove("active");
+      document.getElementById("screen-game").classList.add("active");
+      loadMission(currentStepIndex);
+    }
+
+    function loadMission(index) {
+      const m = missions[index];
+      document.getElementById("current-step").textContent = index + 1;
+      document.getElementById("current-area").textContent = m.area;
+      document.getElementById("mission-title").textContent = m.title;
+      document.getElementById("mission-scenario").textContent = m.scenario;
+      document.getElementById("family-prompt").textContent = m.familyPrompt;
+
+      document.getElementById("progress-bar").style.width = `${(index / missions.length) * 100}%`;
+
+      const optionsContainer = document.getElementById("options-container");
+      const feedbackBox = document.getElementById("feedback-box");
+      optionsContainer.innerHTML = "";
+      feedbackBox.classList.add("hidden");
+
+      m.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "option-btn";
+        btn.textContent = opt.text;
+        btn.onclick = () => handleSelectOption(opt, btn, m);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function handleSelectOption(selectedOpt, selectedBtn, mission) {
+      const buttons = document.querySelectorAll("#options-container .option-btn");
+      buttons.forEach(b => b.disabled = true);
+
+      const feedbackText = document.getElementById("feedback-text");
+
+      if (selectedOpt.correct) {
+        playSuccessSound();
+        selectedBtn.classList.add("correct");
+        currentScore += 25;
+        document.getElementById("score").textContent = currentScore;
+        feedbackText.innerHTML = `🌟 <strong>¡Excelente! (+25 puntos)</strong><br>${selectedOpt.feedback}`;
+      } else {
+        playErrorSound();
+        selectedBtn.classList.add("wrong");
+        feedbackText.innerHTML = `💡 <strong>¡Aprendamos juntos!</strong><br>${selectedOpt.feedback}`;
+        mission.options.forEach((opt, idx) => {
+          if (opt.correct) buttons[idx].classList.add("correct");
+        });
+      }
+
+      document.getElementById("feedback-box").classList.remove("hidden");
+    }
+
+    function nextMission() {
+      playPopSound();
+      currentStepIndex++;
+      if (currentStepIndex < missions.length) {
+        loadMission(currentStepIndex);
+      } else {
+        showFinalResults();
+      }
+    }
+
+    function showFinalResults() {
+      playSuccessSound();
+      document.getElementById("progress-bar").style.width = "100%";
+      document.getElementById("screen-game").classList.remove("active");
+      document.getElementById("screen-results").classList.add("active");
+
+      document.getElementById("final-student-name").textContent = studentName;
+      document.getElementById("final-score").textContent = currentScore;
+
+      let badge = "";
+      let message = "";
+
+      if (currentScore >= 75) {
+        badge = "🏆 Súper Guardián del Canal Stella";
+        message = `¡Felicitaciones ${studentName}! Demostraste un corazón gigante y mucha inteligencia para cuidar la naturaleza y convivir en paz con tus vecinos. ¡Tu escuela y tu familia están muy orgullosas de ti!`;
+      } else {
+        badge = "🌱 Aprendiz de Guardián Ecológico";
+        message = `¡Muy bien ${studentName}! Cada misión te ayudó a descubrir cómo cuidar el agua y separar las basuras en casa y en el colegio. ¡Sigue practicando junto a tu familia!`;
+      }
+
+      document.getElementById("final-badge").textContent = badge;
+      document.getElementById("final-reflection").textContent = message;
+    }
+
+    function restartMissions() {
+      playPopSound();
+      currentStepIndex = 0;
+      currentScore = 0;
+      document.getElementById("score").textContent = "0";
+      document.getElementById("student-name").value = "";
+      document.getElementById("screen-results").classList.remove("active");
+      document.getElementById("screen-welcome").classList.add("active");
+    }
+  </script>
+</body>
+</html>
